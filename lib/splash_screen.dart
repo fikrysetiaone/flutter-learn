@@ -21,8 +21,16 @@ class SplashScreen extends StatelessWidget {
             child: const Text("Hi, Welcome To Flutter Learn"),
           ),
           FilledButton(
+            style: const ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(Colors.black),
+            ),
             onPressed: () {},
-            child: const Text("Press Me!"),
+            child: const Text(
+              "Press Me!",
+              style: TextStyle(
+                color: Colors.amber,
+              ),
+            ),
           )
         ],
       ),
