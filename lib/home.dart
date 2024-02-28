@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/widgets/square_container.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -18,9 +19,17 @@ class HomePage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       backgroundColor: Colors.amber,
-      body: const SafeArea(
-        minimum: EdgeInsets.all(16),
-        child: Text('Hello, World!'),
+      body: SafeArea(
+        minimum: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SquareContainer(textDalam: 'Hi'),
+              SquareContainer(textDalam: 'How are you?'),
+              SquareContainer(textDalam: 'What\'s your name?'),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/home.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -14,54 +15,60 @@ class SplashScreen extends StatelessWidget {
       //   backgroundColor: Colors.amber,
       // ),
 
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
+        fit: StackFit.expand,
         children: [
-          Container(
-            alignment: Alignment.center,
-            // height: 100,
-            // color: Colors.amber,
-            child: const Column(
-              children: [
-                Image(
-                  width: 400,
-                  image: AssetImage('images/welcome.png'),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Hi, Welcome To Flutter Learn",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 32,
-                  ),
-                ),
-              ],
-            ),
+          Image.asset(
+            'images/welcome.jpg',
+            fit: BoxFit.cover,
           ),
-
-          const SizedBox(height: 30),
-
-          // Start Button
-
-          FilledButton(
-            style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(Colors.black),
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const HomePage()),
-              );
-            },
-            child: const Text(
-              "Press Me!",
-              style: TextStyle(
-                color: Colors.amber,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Recipe\nApp',
+                style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                  fontSize: 70,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                )),
               ),
-            ),
-          )
+              Text(
+                'Easy To Make Food',
+                style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                )),
+              ),
+              const SizedBox(height: 300),
+              ElevatedButton(
+                onPressed: () {
+                  // Add your button functionality here
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
+                  backgroundColor: Colors.amber,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  elevation: 3,
+                ),
+                child: const Text('Get Started'),
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ],
       ),
     );
