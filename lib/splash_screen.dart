@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/home.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -7,10 +8,12 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber,
+
       // appBar: AppBar(
       //   title: const Text("Learn Flutter Widgets"),
       //   backgroundColor: Colors.amber,
       // ),
+
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -46,7 +49,12 @@ class SplashScreen extends StatelessWidget {
             style: const ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(Colors.black),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomePage()),
+              );
+            },
             child: const Text(
               "Press Me!",
               style: TextStyle(
